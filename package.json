@@ -6,13 +6,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "npm run jest:test",
+    "test": "npm run mocha:testWithout:freaky",
     "jest:test": "jest",
     "jest:testWith:freaky": "jest --testNamePattern '\\[freaky]'",
     "jest:testWithout:freaky": "jest --testNamePattern '^(?!.*\\[freaky]).*$'",
+    "jest:test:smoke": "jest --testNamePattern '\\[smoke]'",
     "mocha:test": "nyc mocha **/*.test.ts",
-    "mocha:testWith:freaky": "nyc mocha **/*.test.ts --fgrep \\[freaky]",
-    "mocha:testWithout:freaky": "nyc mocha **/*.test.ts --fgrep \\[freaky] --invert"
+    "mocha:testWith:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]'",
+    "mocha:testWithout:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]' --invert",
+    "mocha:test:smoke": "nyc mocha **/*.test.ts --fgrep '[smoke]'"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

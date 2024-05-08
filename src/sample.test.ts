@@ -9,6 +9,6 @@ describe('[freaky] test suite B', () => {
 });
 
 describe('test suite C', () => {
-  it('[freaky][long]test case E', () => {});
-  it('[long][freaky] test case F', () => {});
+  it('[freaky][smoke]test case E', () => {});
+  it('[M][freaky] test case F', () => {});
 });
