@@ -11,10 +11,14 @@
     "jest:testWith:freaky": "jest --testNamePattern '\\[freaky]'",
     "jest:testWithout:freaky": "jest --testNamePattern '^(?!.*\\[freaky]).*$'",
     "jest:test:smoke": "jest --testNamePattern '\\[smoke]'",
-    "mocha:test": "nyc mocha **/*.test.ts",
-    "mocha:testWith:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]'",
-    "mocha:testWithout:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]' --invert",
-    "mocha:test:smoke": "nyc mocha **/*.test.ts --fgrep '[smoke]'",
+    "mocha:test": "nyc mocha **/sample.test.ts",
+    "mocha:testWith:freaky": "nyc mocha **/sample.test.ts --fgrep '[freaky]'",
+    "mocha:testWithout:freaky": "nyc mocha **/sample.test.ts --fgrep '[freaky]' --invert",
+    "mocha:test:smoke": "nyc mocha **/sample.test.ts --fgrep '[smoke]'",
+    "vitest:test": "vitest run",
+    "vitest:testWith:freaky": "vitest run --testNamePattern '\\[freaky]'",
+    "vitest:testWithout:freaky": "vitest run --testNamePattern '^(?!.*\\[freaky]).*$'",
+    "vitest:test:smoke": "vitest run --testNamePattern '\\[smoke]'",
     "node:test": "node --require ts-node/register --test **/node.test.ts",
     "node:testWith:freaky": "node --require ts-node/register  --test-name-pattern '\\[freaky]' --test **/node.test.ts",
     "node:testWithout:freaky": "echo NOT WORKS # node --require ts-node/register  --test-name-pattern '^(?!.*\\[freaky]).*$' --test **/node.test.ts",
@@ -31,6 +35,7 @@
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   }
 }
