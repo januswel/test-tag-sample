@@ -35,6 +35,14 @@ The [`--fgrep`](https://mochajs.org/#-fgrep-string-f-string) option is useful.
 $ nyc mocha **/*.test.ts --fgrep '[smoke]'
 ```
 
+#### Node.js test runner
+
+Use [`--test-name-pattern`](https://nodejs.org/docs/latest-v20.x/api/cli.html#--test-name-pattern).
+
+```sh
+$ node --require ts-node/register  --test-name-pattern '\[freaky]' --test **/node.test.ts
+```
+
 ### Without specific tags
 
 #### Jest
@@ -53,6 +61,14 @@ We can combine `--fgrep` and [`--invert`](https://mochajs.org/#-invert).
 $ npx nyc mocha **/*.test.ts --fgrep '[freaky]' --invert
 ```
 
+#### Node.js test runner
+
+This does not work fine. Negative lookahead is not available with `--test-name-pattern`?
+
+```sh
+$ node --require ts-node/register  --test-name-pattern '^(?!.*\[freaky]).*$' --test **/node.test.ts
+```
+
 ## Appendix
 
 ### Benchmarking
@@ -67,4 +83,9 @@ $ hyperfine -w 3 "npm run mocha:testWithout:freaky"
 Benchmark 1: npm run mocha:testWithout:freaky
   Time (mean ± σ):     938.2 ms ±   9.3 ms    [User: 809.5 ms, System: 139.0 ms]
   Range (min … max):   929.6 ms … 956.9 ms    10 runs
+
+$ hyperfine -w 3 "npm run node:testWith:freaky"
+Benchmark 1: npm run node:testWith:freaky
+  Time (mean ± σ):      1.712 s ±  0.100 s    [User: 2.533 s, System: 0.236 s]
+  Range (min … max):    1.646 s …  1.972 s    10 runs
 ```

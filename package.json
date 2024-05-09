@@ -15,6 +15,10 @@
     "mocha:testWith:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]'",
     "mocha:testWithout:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]' --invert",
     "mocha:test:smoke": "nyc mocha **/*.test.ts --fgrep '[smoke]'",
+    "node:test": "node --require ts-node/register --test **/node.test.ts",
+    "node:testWith:freaky": "node --require ts-node/register  --test-name-pattern '\\[freaky]' --test **/node.test.ts",
+    "node:testWithout:freaky": "echo NOT WORKS # node --require ts-node/register  --test-name-pattern '^(?!.*\\[freaky]).*$' --test **/node.test.ts",
+    "node:test:smoke": "node --require ts-node/register  --test-name-pattern '\\[smoke]' --test **/node.test.ts",
     "verify": "concurrently npm:verify:*",
     "verify:type": "tsc --noEmit"
   },
