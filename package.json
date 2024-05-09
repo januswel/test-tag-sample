@@ -14,10 +14,13 @@
     "mocha:test": "nyc mocha **/*.test.ts",
     "mocha:testWith:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]'",
     "mocha:testWithout:freaky": "nyc mocha **/*.test.ts --fgrep '[freaky]' --invert",
-    "mocha:test:smoke": "nyc mocha **/*.test.ts --fgrep '[smoke]'"
+    "mocha:test:smoke": "nyc mocha **/*.test.ts --fgrep '[smoke]'",
+    "verify": "concurrently npm:verify:*",
+    "verify:type": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
+    "concurrently": "^8.2.2",
     "jest": "^29.7.0",
     "mocha": "^10.4.0",
     "nyc": "^15.1.0",
